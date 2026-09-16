@@ -14,6 +14,7 @@ namespace Lab01
                 // Hiển thị menu cho người dùng lựa chọn bài tập.
                 Console.WriteLine("===== MENU BAI TAP LAB 01 =====");
                 Console.WriteLine("1. Bai 2: Nhap xuat ho ten");
+                Console.WriteLine("2. Bai 3: Tinh x^y");
                 Console.WriteLine("0. Thoat");
 
                 Console.Write("Chon bai: ");
@@ -25,6 +26,7 @@ namespace Lab01
                 {
                     // Mỗi case gọi đúng hàm của bài tương ứng.
                     case "1": Bai02(); break;
+                    case "2": Bai03(); break;
                     case "0": return;     // return kết thúc luôn hàm Main => thoát chương trình.
 
                     default: Console.WriteLine("Lua chon khong hop le!"); break;         // Nếu lựa chọn không nằm trong các case trên => thoát chương trình.
@@ -49,6 +51,20 @@ namespace Lab01
             Console.WriteLine($"Chao ban {hoTen}!");
         }
 
+        // ================= BAI 3 =================
+        // Mục tiêu: tính x^y bằng Math.Pow().
+        static void Bai03()
+        {
+            Console.Write("Nhap so nguyen x: ");
+            // Parse chuyển chuỗi nhập vào thành số nguyên int.
+            int x = int.Parse(Console.ReadLine());
 
+            Console.Write("Nhap so nguyen y: ");
+            int y = int.Parse(Console.ReadLine());
+
+            // Math.Pow(x, y) tính x mũ y và trả về kiểu double.
+            double ketQua = Math.Pow(x, y);
+            Console.WriteLine($"Ket qua {x} mu {y} la: {ketQua}");
+        }
     }
 }
