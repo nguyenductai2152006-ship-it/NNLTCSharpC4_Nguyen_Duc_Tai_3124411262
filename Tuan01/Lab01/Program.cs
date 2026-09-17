@@ -25,6 +25,8 @@ namespace Lab01
                 Console.WriteLine("9. Bai 10: Kiem tra chuoi doi xung");
                 Console.WriteLine("10.Bai 11: Dao nguoc chuoi");
                 Console.WriteLine("11.Bai 12: Chuyen chuoi hoa thuong, dem tu");
+                Console.WriteLine("12.Bai 13: Nhap xuat thong tin sinh vien");
+                Console.WriteLine("13.Bai 14: Tinh luong nhan vien");
                 Console.WriteLine("0. Thoat");
 
                 Console.Write("Chon bai: ");
@@ -46,6 +48,8 @@ namespace Lab01
                     case "9": Bai10(); break;
                     case "10": Bai11(); break;
                     case "11": Bai12(); break;
+                    case "12": Bai13(); break;
+                    case "13": Bai14(); break;
                     case "0": return;     // return kết thúc luôn hàm Main => thoát chương trình.
 
                     default: Console.WriteLine("Lua chon khong hop le!"); break;         // Nếu lựa chọn không nằm trong các case trên => thoát chương trình.
@@ -310,6 +314,82 @@ namespace Lab01
             Console.WriteLine($"So tu: {words.Length}");
         }
 
+        // ================= BAI 13 =================
+        // Lớp SinhVien dùng để mô tả thông tin của một sinh viên.
+        class SinhVien
+        {
+            // Các property lưu dữ liệu của sinh viên.
+            public string MaSV { get; set; }
+            public string HoTen { get; set; }
+            public string DiaChi { get; set; }
+            public int NamSinh { get; set; }
+            // Constructor dùng để khởi tạo đối tượng SinhVien ngay khi new.
+            public SinhVien(string ma,string ten,string dc,int ns)
+            {
+                MaSV = ma;
+                HoTen = ten;
+                DiaChi = dc;
+                NamSinh = ns;
+            }
+            // Phương thức in toàn bộ thông tin sinh viên.
+            public void XuatThongTin()
+            {
+                Console.WriteLine($"MaSV: {MaSV}, HoTen: {HoTen}, DiaChi: {DiaChi}, NamSinh: {NamSinh}");
+            }
+        }
+
+        static void Bai13()
+        {
+            Console.Write("Nhap ma sinh vien: ");string ma = Console.ReadLine();
+            Console.Write("Nhap ho ten: ");string ten = Console.ReadLine();
+            Console.Write("Nhap dia chi: ");string dc = Console.ReadLine();
+            Console.Write("Nhap nam sinh: ");int ns = int.Parse(Console.ReadLine());
+            // Tạo đối tượng SinhVien bằng constructor.
+            SinhVien sv = new SinhVien(ma, ten, dc, ns);
+            // Gọi phương thức in thông tin sinh viên.
+            sv.XuatThongTin();
+        }
+
+        // ================= BAI 14 =================
+        // Lớp NhanVien mô tả thông tin và cách tính lương của nhân viên.
+        class NhanVien
+        {
+            // Các property lưu thông tin nhân viên.
+            public string HoTen { get; set; }
+            public double MucLuong { get; set; }
+            public int SoNgayVang { get; set; }
+            // Constructor khởi tạo một đối tượng NhanVien.
+            public NhanVien(string ten, double luong, int vang)
+            {
+                HoTen = ten;
+                MucLuong = luong;
+                SoNgayVang = vang;
+            }
+
+            // Tính lương thực nhận theo công thức:
+            // Lương thực nhận = Mức lương - Số ngày vắng * 100000.
+            public double TinhLuong()
+            {
+                return MucLuong - SoNgayVang * 100000;
+            }
+
+            // In thông tin và mức lương thực nhận.
+            public void XuatThongTin()
+            {
+                Console.WriteLine($"Nhan vien {HoTen}");
+                Console.WriteLine($"Luong thuc nhan: {TinhLuong()} VND");
+            }
+        }
+        static void Bai14()
+        {
+            Console.Write("Nhap ho ten nhan vien: "); string ten = Console.ReadLine();
+            Console.Write("Nhap muc luong: "); double luong = double.Parse(Console.ReadLine());
+            Console.Write("Nhap so ngay vang: "); int vang = int.Parse(Console.ReadLine());
+            // Tạo đối tượng NhanVien.
+            NhanVien nv = new NhanVien(ten, luong, vang);
+            // Gọi phương thức xuất thông tin và lương.
+            nv.XuatThongTin();
+        }
 
     }
 }
