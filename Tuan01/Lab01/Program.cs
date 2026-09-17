@@ -17,6 +17,7 @@ namespace Lab01
                 Console.WriteLine("2. Bai 3: Tinh x^y");
                 Console.WriteLine("3. Bai 4: Tinh x^y (co bao loi)");
                 Console.WriteLine("4. Bai 5: Menu tinh toan so thuc");
+                Console.WriteLine("5. Bai 6: Tim max 3 so nguyen");
                 Console.WriteLine("0. Thoat");
 
                 Console.Write("Chon bai: ");
@@ -31,6 +32,7 @@ namespace Lab01
                     case "2": Bai03(); break;
                     case "3": Bai04(); break;
                     case "4": Bai05(); break;
+                    case "5": Bai06(); break;
                     case "0": return;     // return kết thúc luôn hàm Main => thoát chương trình.
 
                     default: Console.WriteLine("Lua chon khong hop le!"); break;         // Nếu lựa chọn không nằm trong các case trên => thoát chương trình.
@@ -141,7 +143,24 @@ namespace Lab01
             }
         }
 
+        // ================= BAI 6 =================
+        // Hàm phụ: tìm số lớn nhất trong 3 số nguyên.
+        static int TimMax(int a, int b, int c)
+        {
+            // Math.Max(a, b) tìm số lớn hơn giữa a và b.
+            // Sau đó so sánh kết quả với c.
+            return Math.Max(a, Math.Max(b, c));
+        }
 
+        static void Bai06()
+        {
+            // Nhập 3 số nguyên.
+            Console.Write("Nhap a: "); int a = int.Parse(Console.ReadLine());
+            Console.Write("Nhap b: "); int b = int.Parse(Console.ReadLine());
+            Console.Write("Nhap c: "); int c = int.Parse(Console.ReadLine());
+            // Gọi hàm TimMax để lấy giá trị lớn nhất rồi in ra.
+            Console.WriteLine($"Max = {TimMax(a, b, c)}");
+        }
 
 
     }
