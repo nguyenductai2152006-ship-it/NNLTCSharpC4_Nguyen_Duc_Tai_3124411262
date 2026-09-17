@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Text; // - Text: StringBuilder
 namespace Lab01
 {
     class Program
@@ -8,7 +8,8 @@ namespace Lab01
         {
             // while(true) tạo vòng lặp menu vô hạn.
             // Chương trình chỉ dừng khi gặp "return" ở lựa chọn 0.
-            while (true) {
+            while (true)
+            {
                 Console.Clear();        // Xóa toàn bộ nội dung Console cũ trước khi hiển thị menu mới.
 
                 // Hiển thị menu cho người dùng lựa chọn bài tập.
@@ -22,6 +23,8 @@ namespace Lab01
                 Console.WriteLine("7. Bai 8: Hoan vi 2 so thuc (ref)");
                 Console.WriteLine("8. Bai 9: Tim min max 3 so thuc (out)");
                 Console.WriteLine("9. Bai 10: Kiem tra chuoi doi xung");
+                Console.WriteLine("10.Bai 11: Dao nguoc chuoi");
+                Console.WriteLine("11.Bai 12: Chuyen chuoi hoa thuong, dem tu");
                 Console.WriteLine("0. Thoat");
 
                 Console.Write("Chon bai: ");
@@ -41,11 +44,13 @@ namespace Lab01
                     case "7": Bai08(); break;
                     case "8": Bai09(); break;
                     case "9": Bai10(); break;
+                    case "10": Bai11(); break;
+                    case "11": Bai12(); break;
                     case "0": return;     // return kết thúc luôn hàm Main => thoát chương trình.
 
                     default: Console.WriteLine("Lua chon khong hop le!"); break;         // Nếu lựa chọn không nằm trong các case trên => thoát chương trình.
-              
-                 }
+
+                }
                 // Sau khi làm xong một bài, dừng màn hình để người dùng xem kết quả.
                 Console.WriteLine("\nNhan phim bat ky de tiep tuc...");
                 Console.ReadKey();      // Chờ người dùng nhấn một phím bất kỳ.
@@ -264,6 +269,45 @@ namespace Lab01
                 Console.WriteLine("Chuoi doi xung.");
             else
                 Console.WriteLine("Chuoi khong doi xung.");
+        }
+
+
+        // ================= BAI 11 =================
+        // Hàm tạo một chuỗi mới bằng cách đọc ký tự từ cuối về đầu.
+        static string DaoNguocChuoi(string s)
+        {
+            // StringBuilder dùng để nối nhiều ký tự hiệu quả.
+            StringBuilder sb = new StringBuilder();
+            // Duyệt chuỗi từ vị trí cuối cùng về vị trí 0.
+            for (int i = s.Length - 1; i >= 0; i--)
+            {
+                // Thêm từng ký tự vào StringBuilder.
+                sb.Append(s[i]);
+            }
+            // Chuyển StringBuilder thành chuỗi string để trả về.
+            return sb.ToString();
+        }
+        static void Bai11()
+        {
+            Console.Write("Nhap chuoi: ");
+            string s = Console.ReadLine();
+            Console.WriteLine($"Chuoi dao nguoc: {DaoNguocChuoi(s)}");
+        }
+
+        // ================= BAI 12 =================
+        // Mục tiêu: đổi chữ hoa/thường và đếm số từ trong chuỗi.
+        static void Bai12()
+        {
+            Console.Write("Nhap chuoi nhieu tu: ");
+            string s = Console.ReadLine();
+            // ToLower() chuyển toàn bộ chuỗi thành chữ thường.
+            Console.WriteLine($"Chu thuong: {s.ToLower()}");
+            // ToUpper() chuyển toàn bộ chuỗi thành chữ hoa.
+            Console.WriteLine($"Chu hoa: {s.ToUpper()}");
+            // Split tách chuỗi thành mảng từ.
+            // RemoveEmptyEntries bỏ các phần tử rỗng do nhiều dấu cách liên tiếp.
+            string[] words = s.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            Console.WriteLine($"So tu: {words.Length}");
         }
 
 
