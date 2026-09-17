@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Text; // - Text: StringBuilder
+using System.Text;
+using System.Collections.Generic;
 namespace Lab01
 {
     class Program
@@ -27,6 +28,9 @@ namespace Lab01
                 Console.WriteLine("11.Bai 12: Chuyen chuoi hoa thuong, dem tu");
                 Console.WriteLine("12.Bai 13: Nhap xuat thong tin sinh vien");
                 Console.WriteLine("13.Bai 14: Tinh luong nhan vien");
+                Console.WriteLine("14.Bai 15: Mang 1 chieu (nhap, xuat, MinMax, So nguyen to)");
+                Console.WriteLine("15.Bai 16: Nhap danh sach ho ten va sap xep");
+                Console.WriteLine("16.Bai 17: Mang 2 chieu ngau nhien, tach so chan le");
                 Console.WriteLine("0. Thoat");
 
                 Console.Write("Chon bai: ");
@@ -50,6 +54,9 @@ namespace Lab01
                     case "11": Bai12(); break;
                     case "12": Bai13(); break;
                     case "13": Bai14(); break;
+                    case "14": Bai15(); break;
+                    case "15": Bai16(); break; 
+                    case "16": Bai17(); break; 
                     case "0": return;     // return kết thúc luôn hàm Main => thoát chương trình.
 
                     default: Console.WriteLine("Lua chon khong hop le!"); break;         // Nếu lựa chọn không nằm trong các case trên => thoát chương trình.
@@ -391,5 +398,134 @@ namespace Lab01
             nv.XuatThongTin();
         }
 
+        // ================= BAI 15 =================
+        // Hàm nhập các phần tử cho mảng 1 chiều.
+        static void NhapMang(int[] arr)
+        {
+            // arr.Length là số lượng phần tử của mảng.
+            for (int i = 0; i < arr.Length; i++)
+            {       // arr[i] là phần tử tại vị trí i.s
+                Console.Write($"Nhap phan tu arr[{i}]: ");  
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+        }
+        // Hàm xuất toàn bộ mảng.
+        static void XuatMang(int[] arr)
+        {            // string.Join nối các phần tử bằng dấu ", ".
+            Console.WriteLine("Mang: "+ string.Join(", ", arr));
+        }
+        // Hàm tìm Min và Max của mảng
+        static void TimMinMaxMang(int[] arr, out int min, out int max)
+        {
+            // Tạm lấy phần tử đầu tiên làm Min và Max ban đầu.
+            min = arr[0];
+            max = arr[0];
+            // foreach lần lượt lấy từng phần tử trong mảng.
+            foreach (int x in arr)
+            {
+                // foreach lần lượt lấy từng phần tử trong mảng.
+                if (x < min) min = x;
+                // Nếu x lớn hơn Max hiện tại thì cập nhật Max.
+                if (x > max) max = x;
+            }
+        }
+        // Hàm lấy các số nguyên tố trong mảng.
+        static int[] LaySoNguyenTo(int[] arr)
+        {        // Tạo List để lưu các số nguyên tố tìm được.
+            List<int> result = new List<int>();
+            foreach(int x in arr)
+            {      // Nếu x là số nguyên tố thì thêm x vào List.
+                if (KiemTraNguyenTo(x)) result.Add(x);
+            }
+            // Chuyển List<int> thành int[] trước khi trả về.
+            return result.ToArray();
+        }
+
+        static void Bai15()
+        {
+            Console.Write("Nhap n: ");
+            int n = int.Parse(Console.ReadLine());
+            // Cấp phát mảng có n phần tử.
+            int[] arr = new int[n];
+
+            // Gọi các hàm để nhập, xuất, tìm Min/Max và lọc số nguyên tố.
+            NhapMang(arr);
+            XuatMang(arr);
+            TimMinMaxMang(arr, out int min, out int max);
+            Console.WriteLine($"Min = {min}, Max = {max}"); 
+            int[] nguyenTo = LaySoNguyenTo(arr);
+            Console.WriteLine("Cac so nguyen to: " + string.Join(", ", nguyenTo));
+        }
+        // ================= BAI 16 =================
+        // Mục tiêu: nhập danh sách họ tên và sắp xếp.
+        static void Bai16()
+        {
+            Console.Write("Nhap mang ho ten cua n nguoi: ");
+            int n = int.Parse(Console.ReadLine());
+            // Tạo mảng string để lưu n họ tên.
+            string[] hoTen = new string[n];
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Nhap ho ten thu {i + 1}: ");
+                hoTen[i] = Console.ReadLine();
+            }
+            // Array.Sort sắp xếp mảng chuỗi theo thứ tự tăng dần.
+            Array.Sort(hoTen);
+            Console.WriteLine("Danh sach ho ten sau khi sap xep:");
+            foreach(string s in hoTen)
+            {
+                Console.WriteLine(s);
+            }
+        }
+        // ================= BAI 17 =================
+        // Mục tiêu: tạo mảng 2 chiều ngẫu nhiên, sau đó tách số chẵn và lẻ.
+        static void Bai17()
+        {
+            Console.Write("Nhap n: "); int n = int.Parse(Console.ReadLine());
+            Console.Write("Nhap m: "); int m = int.Parse(Console.ReadLine());
+            // int[,] là mảng 2 chiều có n dòng và m cột.
+            int[,] arr = new int[n, m];
+            // Random dùng để sinh số ngẫu nhiên.
+            Random rd = new Random();
+            // ===== Sinh ngẫu nhiên các phần tử =====
+            // Vòng lặp i duyệt từng dòng.
+            for (int i = 0; i < n; i++)
+            {
+                // Vòng lặp j duyệt từng cột trong dòng i.
+                for (int j = 0; j < m; j++)
+                {
+                    // Sinh số ngẫu nhiên từ 0 đến 99.
+                    arr[i, j] = rd.Next(9,101);
+                }
+            }
+            // ===== In mảng 2 chiều =====
+            Console.WriteLine("Mang 2 chieu:");
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write(arr[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+            // ===== Tách số chẵn và số lẻ =====
+            // Hai List dùng để lưu riêng các số chẵn và số lẻ.
+            List<int> chan = new List<int>();
+            List<int> le = new List<int>();
+            for(int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    // % là phép chia lấy dư.
+                    // Dư 0 khi chia 2 => số chẵn; ngược lại => số lẻ.
+                    if (arr[i, j] % 2 == 0)
+                        chan.Add(arr[i, j]);
+                    else
+                        le.Add(arr[i, j]);
+                }
+            }
+            Console.WriteLine("Nhap so chan: " + string.Join(", ", chan));
+            Console.WriteLine("Nhap so le: " + string.Join(", ", le));
+        }
     }
 }
