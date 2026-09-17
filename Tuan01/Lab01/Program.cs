@@ -341,7 +341,7 @@ namespace Lab01
             // Phương thức in toàn bộ thông tin sinh viên.
             public void XuatThongTin()
             {
-                Console.WriteLine($"MaSV: {MaSV}, HoTen: {HoTen}, DiaChi: {DiaChi}, NamSinh: {NamSinh}");
+                Console.WriteLine($"MaSV: {MaSV}, HoTen: {HoTen}, DiaChi: {DiaChi}, Nam: {NamSinh}");
             }
         }
 
@@ -350,7 +350,7 @@ namespace Lab01
             Console.Write("Nhap ma sinh vien: ");string ma = Console.ReadLine();
             Console.Write("Nhap ho ten: ");string ten = Console.ReadLine();
             Console.Write("Nhap dia chi: ");string dc = Console.ReadLine();
-            Console.Write("Nhap nam sinh: ");int ns = int.Parse(Console.ReadLine());
+            Console.Write("Sinh vien nam: ");int ns = int.Parse(Console.ReadLine());
             // Tạo đối tượng SinhVien bằng constructor.
             SinhVien sv = new SinhVien(ma, ten, dc, ns);
             // Gọi phương thức in thông tin sinh viên.
