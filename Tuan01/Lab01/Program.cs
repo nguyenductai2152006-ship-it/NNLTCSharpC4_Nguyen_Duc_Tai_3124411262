@@ -16,6 +16,7 @@ namespace Lab01
                 Console.WriteLine("1. Bai 2: Nhap xuat ho ten");
                 Console.WriteLine("2. Bai 3: Tinh x^y");
                 Console.WriteLine("3. Bai 4: Tinh x^y (co bao loi)");
+                Console.WriteLine("4. Bai 5: Menu tinh toan so thuc");
                 Console.WriteLine("0. Thoat");
 
                 Console.Write("Chon bai: ");
@@ -29,6 +30,7 @@ namespace Lab01
                     case "1": Bai02(); break;
                     case "2": Bai03(); break;
                     case "3": Bai04(); break;
+                    case "4": Bai05(); break;
                     case "0": return;     // return kết thúc luôn hàm Main => thoát chương trình.
 
                     default: Console.WriteLine("Lua chon khong hop le!"); break;         // Nếu lựa chọn không nằm trong các case trên => thoát chương trình.
@@ -92,7 +94,52 @@ namespace Lab01
             Console.WriteLine($"Ket qua {x} mu {y} la: {ketQua}");
         }
 
+        // ================= BAI 5 =================
+        // Mục tiêu: tạo một menu con để nhập số và thực hiện phép tính.
+        static void Bai05()
+        {
+            // Gán giá trị ban đầu để x, y có giá trị trước khi sử dụng.
+            double x = 0, y = 0;
+            // Lặp menu con cho đến khi người dùng chọn chức năng 4.
+            while (true)
+            {
+                Console.WriteLine("\nMENU");
+                Console.WriteLine("1. Nhap hai gia tri so thuc cho x, y");
+                Console.WriteLine("2. Tinh x^y");
+                Console.WriteLine("3. Tinh can bac 2 cua x va y");
+                Console.WriteLine("4. Thoat");
+                Console.Write("Chon chuc nang: ");
+                int chon = int.Parse(Console.ReadLine());
 
+                // switch thực hiện chức năng tương ứng với lựa chọn.
+                switch (chon)
+                {
+                    case 1:
+                        // Nhập hai giá trị số thực.
+                        Console.Write("Nhap x: ");
+                        x = double.Parse(Console.ReadLine());
+
+                        Console.Write("Nhap y: ");
+                        y = double.Parse(Console.ReadLine());
+                        break;
+                    case 2:
+                        // Tính x mũ y.
+                        Console.WriteLine($"x^y = {Math.Pow(x, y)}");
+                        break;
+                    case 3:
+                        // Math.Sqrt tính căn bậc hai.
+                        Console.WriteLine($"Can bac 2 cua x = {Math.Sqrt(x)}");
+                        Console.WriteLine($"Can bac 2 cua y = {Math.Sqrt(y)}");
+                        break;
+                    case 4:
+                        // return thoát khỏi Bai05 và quay lại menu chính.
+                        return;
+                    default:
+                        Console.WriteLine("Chon sai!");
+                        break;
+                }
+            }
+        }
 
 
 
