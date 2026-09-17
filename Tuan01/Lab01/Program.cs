@@ -20,6 +20,8 @@ namespace Lab01
                 Console.WriteLine("5. Bai 6: Tim max 3 so nguyen");
                 Console.WriteLine("6. Bai 7: Kiem tra so nguyen to");
                 Console.WriteLine("7. Bai 8: Hoan vi 2 so thuc (ref)");
+                Console.WriteLine("8. Bai 9: Tim min max 3 so thuc (out)");
+                Console.WriteLine("9. Bai 10: Kiem tra chuoi doi xung");
                 Console.WriteLine("0. Thoat");
 
                 Console.Write("Chon bai: ");
@@ -37,6 +39,8 @@ namespace Lab01
                     case "5": Bai06(); break;
                     case "6": Bai07(); break;
                     case "7": Bai08(); break;
+                    case "8": Bai09(); break;
+                    case "9": Bai10(); break;
                     case "0": return;     // return kết thúc luôn hàm Main => thoát chương trình.
 
                     default: Console.WriteLine("Lua chon khong hop le!"); break;         // Nếu lựa chọn không nằm trong các case trên => thoát chương trình.
@@ -211,6 +215,57 @@ namespace Lab01
             HoanVi(ref a, ref b);
             Console.WriteLine($"Sau khi hoan vi: a = {a}, b = {b}");
         }
+
+        // ================= BAI 9 =================
+        // Hàm tìm cả Min và Max.
+        // out cho phép hàm trả về nhiều giá trị thông qua tham số.
+        static void TimMinMax(double a, double b, double c, out double min, out double max)
+        {
+            // Tìm giá trị nhỏ nhất.
+            min = Math.Min(a, Math.Min(b, c));
+            // Tìm giá trị lớn nhất.
+            max = Math.Max(a, Math.Max(b, c));
+        }
+
+        static void Bai09()
+        {
+            Console.Write("Nhap a: "); double a = double.Parse(Console.ReadLine());
+            Console.Write("Nhap b: "); double b = double.Parse(Console.ReadLine());
+            Console.Write("Nhap c: "); double c = double.Parse(Console.ReadLine());
+            // Nhận đồng thời min và max từ hàm TimMinMax.
+            TimMinMax(a, b, c, out double min, out double max);
+            Console.WriteLine($"Min = {min}, Max = {max}");
+        }
+
+        // ================= BAI 10 =================
+        // Kiểm tra chuỗi đối xứng (đọc từ trái sang phải giống từ phải sang trái).
+        static bool KiemTraDoiXung(string s)
+        {
+            // left bắt đầu ở đầu chuỗi, right bắt đầu ở cuối chuỗi.
+            int left = 0, right = s.Length - 1;
+            // So sánh từng cặp ký tự từ hai đầu tiến vào giữa.
+            while (left < right)
+            {
+                // Chỉ cần một cặp khác nhau => không đối xứng.
+                if (s[left] != s[right]) return false;
+
+                // Di chuyển hai con trỏ vào trong.
+                left++;
+                right--;
+            }
+            return true;
+        }
+
+        static void Bai10()
+        {
+            Console.Write("Nhap chuoi: ");
+            string s = Console.ReadLine();
+            if (KiemTraDoiXung(s))
+                Console.WriteLine("Chuoi doi xung.");
+            else
+                Console.WriteLine("Chuoi khong doi xung.");
+        }
+
 
     }
 }
