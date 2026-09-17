@@ -18,6 +18,8 @@ namespace Lab01
                 Console.WriteLine("3. Bai 4: Tinh x^y (co bao loi)");
                 Console.WriteLine("4. Bai 5: Menu tinh toan so thuc");
                 Console.WriteLine("5. Bai 6: Tim max 3 so nguyen");
+                Console.WriteLine("6. Bai 7: Kiem tra so nguyen to");
+                Console.WriteLine("7. Bai 8: Hoan vi 2 so thuc (ref)");
                 Console.WriteLine("0. Thoat");
 
                 Console.Write("Chon bai: ");
@@ -33,6 +35,8 @@ namespace Lab01
                     case "3": Bai04(); break;
                     case "4": Bai05(); break;
                     case "5": Bai06(); break;
+                    case "6": Bai07(); break;
+                    case "7": Bai08(); break;
                     case "0": return;     // return kết thúc luôn hàm Main => thoát chương trình.
 
                     default: Console.WriteLine("Lua chon khong hop le!"); break;         // Nếu lựa chọn không nằm trong các case trên => thoát chương trình.
@@ -162,6 +166,51 @@ namespace Lab01
             Console.WriteLine($"Max = {TimMax(a, b, c)}");
         }
 
+        // ================= BAI 7 =================
+        // Hàm trả về true nếu n là số nguyên tố, ngược lại false.
+        static bool KiemTraNguyenTo(int n)
+        {
+            // Số nguyên tố phải lớn hơn hoặc bằng 2.
+            if (n < 2) return false;
+            // Chỉ cần thử ước từ 2 đến căn bậc hai của n.
+            for (int i = 2; i <= Math.Sqrt(n); i++)
+            {
+                // Nếu chia hết cho i thì n không phải số nguyên tố.
+                if (n % i == 0) return false;
+            }
+            // Không tìm thấy ước nào => n là số nguyên tố.
+            return true;
+        }
+
+        static void Bai07()
+        {
+            Console.Write("Nhap n: ");
+            int n = int.Parse(Console.ReadLine());
+            if (KiemTraNguyenTo(n))
+                Console.WriteLine($"{n} la so nguyen to.");
+            else
+                Console.WriteLine($"{n} khong phai so nguyen to.");
+        }
+
+        // ================= BAI 8 =================
+        // Hàm hoán vị 2 số thực.
+        // ref cho phép hàm thay đổi trực tiếp giá trị biến bên ngoài.
+        static void HoanVi(ref double a, ref double b)
+        {
+            // Lưu a tạm thời để tránh mất dữ liệu khi đổi chỗ.
+            double temp = a;
+            a = b;
+            b = temp;
+        }
+
+        static void Bai08()
+        {
+            Console.Write("Nhap a: "); double a = double.Parse(Console.ReadLine());
+            Console.Write("Nhap b: "); double b = double.Parse(Console.ReadLine());
+            // Khi gọi hàm phải dùng ref vì tham số của hàm cũng dùng ref.
+            HoanVi(ref a, ref b);
+            Console.WriteLine($"Sau khi hoan vi: a = {a}, b = {b}");
+        }
 
     }
 }
