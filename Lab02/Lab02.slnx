@@ -5,5 +5,6 @@
   <Project Path="Bai1.5/Bai1.5.csproj" Id="7ba04d43-9cfd-4daa-b5cf-b7a879b6b6d0" />
   <Project Path="Bai2.1/Bai2.1.csproj" Id="52ebb6f7-0b75-45b0-8a84-490a19d41072" />
   <Project Path="Bai2.2/Bai2.2.csproj" Id="7cdb19a2-39d8-4349-ab02-913c1438bda8" />
+  <Project Path="Bai2.3/Bai2.3.csproj" Id="1475cca9-808e-410a-aaa9-8fbe544f7e95" />
   <Project Path="Lab02/Bai1.1.csproj" />
 </Solution>
