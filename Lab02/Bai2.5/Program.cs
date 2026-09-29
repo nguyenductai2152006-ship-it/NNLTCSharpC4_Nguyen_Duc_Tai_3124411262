@@ -1,116 +1,99 @@
-﻿using System;
+﻿
+using System;
 
 namespace ThucHanh02
 {
-    // === LỚP ĐƠN THỨC (Tái sử dụng phiên bản rút gọn từ Bài 1.5) ===
-    class DonThuc
+    // === LỚP NHÂN VIÊN ===
+    class NhanVien
     {
-        public double HeSo { get; set; }
-        public int SoMu { get; set; }
+        // 1. Properties tự động
+        public string HoTen { get; set; }
+        public double MucLuong { get; set; }
+        public int SoNgayVang { get; set; }
 
-        public DonThuc(double heSo, int soMu)
+        // 2. Constructor
+        public NhanVien()
         {
-            HeSo = heSo;
-            SoMu = soMu;
+            HoTen = "Chưa có tên";
+            MucLuong = 0;
+            SoNgayVang = 0;
         }
 
-        public double TinhGiaTri(double x)
+        // 3. Nhập thông tin nhân viên
+        public void Nhap()
         {
-            return HeSo * Math.Pow(x, SoMu);
+            Console.Write("  Nhập họ tên: ");
+            HoTen = Console.ReadLine();
+
+            Console.Write("  Nhập mức lương cơ bản (VNĐ): ");
+            MucLuong = double.Parse(Console.ReadLine());
+
+            Console.Write("  Nhập số ngày vắng: ");
+            SoNgayVang = int.Parse(Console.ReadLine());
+        }
+
+        // 4. Tính lương thực nhận
+        public double TinhLuong()
+        {
+            // Theo đề bài: trừ 100.000 VNĐ cho mỗi ngày vắng
+            double tienPhat = SoNgayVang * 100000;
+            double luongThucNhan = MucLuong - tienPhat;
+
+            // Đề phòng trường hợp vắng quá nhiều, tiền phạt lớn hơn cả lương
+            // Lương không thể âm, nên nếu âm thì gán bằng 0
+            if (luongThucNhan < 0)
+            {
+                return 0;
+            }
+            return luongThucNhan;
+        }
+
+        // 5. Xuất thông tin
+        public void Xuat()
+        {
+            Console.WriteLine($"  Họ tên: {HoTen} | Lương cơ bản: {MucLuong:N0} | Vắng: {SoNgayVang} ngày | Lương nhận: {TinhLuong():N0} VNĐ");
         }
     }
 
-    // === LỚP ĐA THỨC CHỨA MẢNG N+1 ĐƠN THỨC ===
-    class DaThuc
+    // === LỚP PHÒNG BAN QUẢN LÝ DANH SÁCH NHÂN VIÊN ===
+    class PhongBan
     {
-        // 1. Fields
-        private int n; // Bậc của đa thức
-        private DonThuc[] dsDonThuc; // Mảng lưu trữ n+1 đơn thức
+        private NhanVien[] dsNhanVien;
+        private int n;
 
-        // 2. Constructors
-        // Constructor mặc định (Đa thức bậc 0: P(x) = 0)
-        public DaThuc()
-        {
-            n = 0;
-            dsDonThuc = new DonThuc[1];
-            dsDonThuc[0] = new DonThuc(0, 0);
-        }
-
-        // Constructor có tham số (Tạo mảng chứa n+1 phần tử)
-        public DaThuc(int bac)
-        {
-            n = bac;
-            dsDonThuc = new DonThuc[n + 1];
-        }
-
-        // 3. Indexer để truy cập đơn thức thứ i
-        public DonThuc this[int i]
-        {
-            get { return dsDonThuc[i]; }
-            set { dsDonThuc[i] = value; }
-        }
-
-        // 4. Nhập đa thức
+        // Nhập danh sách phòng ban
         public void Nhap()
         {
-            Console.Write("Nhập bậc của đa thức (n): ");
+            Console.Write("Nhập số lượng nhân viên trong phòng ban: ");
             n = int.Parse(Console.ReadLine());
 
-            // Cấp phát mảng kích thước n+1 (từ bậc 0 đến bậc n)
-            dsDonThuc = new DonThuc[n + 1];
+            dsNhanVien = new NhanVien[n];
 
-            Console.WriteLine("--- Nhập các hệ số ---");
-            for (int i = 0; i <= n; i++)
+            for (int i = 0; i < n; i++)
             {
-                Console.Write($"Nhập hệ số a[{i}] (cho đơn thức bậc {i}): ");
-                double a = double.Parse(Console.ReadLine());
-
-                // Khởi tạo đơn thức thứ i với hệ số a và số mũ i
-                dsDonThuc[i] = new DonThuc(a, i);
+                Console.WriteLine($"\n--- Nhập thông tin nhân viên thứ {i + 1} ---");
+                dsNhanVien[i] = new NhanVien();
+                dsNhanVien[i].Nhap();
             }
         }
 
-        // 5. Xuất đa thức ra màn hình
+        // Xuất danh sách nhân viên
         public void Xuat()
         {
-            bool tatCaBang0 = true; // Cờ kiểm tra trường hợp toàn hệ số 0
-
-            for (int i = 0; i <= n; i++)
+            Console.WriteLine("\n--- DANH SÁCH NHÂN VIÊN PHÒNG BAN ---");
+            for (int i = 0; i < n; i++)
             {
-                double heSo = dsDonThuc[i].HeSo;
-
-                if (heSo == 0) continue; // Bỏ qua các hệ số bằng 0
-
-                tatCaBang0 = false; // Đã có ít nhất 1 hệ số khác 0
-
-                // Xử lý dấu cộng/trừ cho đẹp
-                if (heSo > 0 && i > 0) Console.Write(" + ");
-                if (heSo < 0) Console.Write(" - ");
-
-                // Lấy trị tuyệt đối để in chung với dấu đã xét ở trên
-                double val = Math.Abs(heSo);
-
-                // Format biểu thức
-                if (i == 0) Console.Write($"{val}");
-                else if (i == 1) Console.Write($"{val}*x");
-                else Console.Write($"{val}*x^{i}");
+                dsNhanVien[i].Xuat();
             }
-
-            if (tatCaBang0)
-            {
-                Console.Write("0");
-            }
-            Console.WriteLine();
         }
 
-        // 6. Tính giá trị đa thức với giá trị x
-        public double TinhGiaTri(double x)
+        // Tính tổng lương cả phòng ban
+        public double TongLuongPhongBan()
         {
             double tong = 0;
-            // Duyệt qua tất cả đơn thức, gọi hàm TinhGiaTri của từng cái rồi cộng dồn
-            for (int i = 0; i <= n; i++)
+            for (int i = 0; i < n; i++)
             {
-                tong += dsDonThuc[i].TinhGiaTri(x);
+                tong += dsNhanVien[i].TinhLuong();
             }
             return tong;
         }
@@ -122,25 +105,20 @@ namespace ThucHanh02
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            Console.WriteLine("===== KHỞI TẠO VÀ NHẬP ĐA THỨC =====");
-            DaThuc P = new DaThuc();
-            P.Nhap();
+            Console.WriteLine("===== PHẦN MỀM TÍNH LƯƠNG =====");
+            PhongBan pb = new PhongBan();
 
-            Console.Write("\nĐa thức P(x) = ");
-            P.Xuat();
+            // Nhập dữ liệu
+            pb.Nhap();
 
-            Console.WriteLine("\n===== TÍNH GIÁ TRỊ ĐA THỨC =====");
-            Console.Write("Nhập giá trị x cần tính: ");
-            double x = double.Parse(Console.ReadLine());
+            // In danh sách chi tiết
+            pb.Xuat();
 
-            Console.WriteLine($"=> Kết quả P({x}) = {P.TinhGiaTri(x)}");
-
-            Console.WriteLine("\n===== TEST INDEXER =====");
-            // Test lấy ra đơn thức bậc 1 (nếu có)
-            if (P[0] != null)
-            {
-                Console.WriteLine($"Hệ số của đơn thức bậc 0 (a[0]) là: {P[0].HeSo}");
-            }
+            // Tính và in tổng lương
+            double tongQuyLuong = pb.TongLuongPhongBan();
+            Console.WriteLine("\n=============================================");
+            Console.WriteLine($"TỔNG QUỸ LƯƠNG CỦA PHÒNG BAN: {tongQuyLuong:N0} VNĐ");
+            Console.WriteLine("=============================================");
 
             Console.ReadLine();
         }
