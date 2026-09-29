@@ -10,5 +10,7 @@
   <Project Path="Bai2.4/Bai2.4.csproj" Id="9f6d082a-808b-4f8a-8b46-4d1a5fae9d3d" />
   <Project Path="Bai2.5/Bai2.3(DaThuc).csproj" Id="73075fd6-4ca6-4033-b3d7-a5e4348d3660" />
   <Project Path="Bai2.5/Bai2.5.csproj" Id="df44f90b-8567-4a7d-beec-440461d5419d" />
+  <Project Path="Bai3.1/Bai3.1.csproj" Id="7d5551e3-724c-4e46-8e03-924302a6c1ca" />
+  <Project Path="Bai3.2/Bai3.2.csproj" Id="eefc5e44-fd29-481c-b9c3-ee727e3e0710" />
   <Project Path="Lab02/Bai1.1.csproj" />
 </Solution>
