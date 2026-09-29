@@ -2,5 +2,7 @@
   <Project Path="Bai1.2/Bai1.2.csproj" />
   <Project Path="Bai1.3/Bai1.3.csproj" Id="d5372e09-8b11-4397-aea8-346d969a9d0a" />
   <Project Path="Bai1.4/Bai1.4.csproj" Id="c77ad283-9f6c-4084-b4cd-c18c047fbd9b" />
+  <Project Path="Bai1.5/Bai1.5.csproj" Id="7ba04d43-9cfd-4daa-b5cf-b7a879b6b6d0" />
+  <Project Path="Bai2.1/Bai2.1.csproj" Id="52ebb6f7-0b75-45b0-8a84-490a19d41072" />
   <Project Path="Lab02/Bai1.1.csproj" />
 </Solution>
