@@ -12,5 +12,6 @@
   <Project Path="Bai2.5/Bai2.5.csproj" Id="df44f90b-8567-4a7d-beec-440461d5419d" />
   <Project Path="Bai3.1/Bai3.1.csproj" Id="7d5551e3-724c-4e46-8e03-924302a6c1ca" />
   <Project Path="Bai3.2/Bai3.2.csproj" Id="eefc5e44-fd29-481c-b9c3-ee727e3e0710" />
+  <Project Path="Bai3.3/Bai3.3.csproj" Id="688ab55a-23c3-4055-a842-f79620c32d64" />
   <Project Path="Lab02/Bai1.1.csproj" />
 </Solution>
