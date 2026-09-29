@@ -1,3 +1,4 @@
 <Solution>
-  <Project Path="Lab02/Lab02.csproj" />
+  <Project Path="Bai1.2/Bai1.2.csproj" />
+  <Project Path="Lab02/Bai1.1.csproj" />
 </Solution>
