@@ -5,5 +5,6 @@
   <Project Path="Bai4.1/Bai4.1.csproj" />
   <Project Path="Bai5.1/Bai5.1.csproj" />
   <Project Path="Bai5.2/Bai5.2.csproj" />
+  <Project Path="Bai6.1/Bai6.1.csproj" />
   <Project Path="BaiThucHanhLINQ/Bai2.1.csproj" />
 </Solution>
