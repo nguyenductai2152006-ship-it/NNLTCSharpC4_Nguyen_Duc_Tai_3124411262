@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Bai1;
+using System;
 using System.Windows.Forms;
 
-namespace WinFormBasic1
+namespace Bai1
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -13,8 +14,6 @@ namespace WinFormBasic1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            // Lệnh quan trọng nhất: Khởi động chương trình và gọi Form1 lên[cite: 12, 34]
             Application.Run(new Form1());
         }
     }
