@@ -12,5 +12,6 @@
     <Project Path="BaiNangCao/BaiNangCao.csproj" Id="b5d13dcf-4a16-4426-8702-8b87e7a0dff2" />
     <Project Path="Baithuchanh4d/Bai01/Bai01.csproj" Id="e2f7be8b-eb79-4df2-931b-ffc8e43c14f5" />
     <Project Path="Baithuchanh4d/Bai02/Bai02.csproj" Id="5800915a-5d02-4f87-ae81-e4d5b2571eca" />
+    <Project Path="BTVN/BTVN.csproj" Id="92ce1b5b-c291-4d1c-a801-c98d1ae648bd" />
   </Folder>
 </Solution>
