@@ -1,4 +1,15 @@
 <Solution>
-  <Folder Name="/Baithuchanh4c/" />
-  <Folder Name="/Baithuchanh4d/" />
+  <Folder Name="/Baithuchanh4c/">
+    <Project Path="Baithuchanh4c/Bai1(NangCao)/Bai1(NangCao).csproj" Id="1b0e995c-8e52-4cb2-978b-e9138a2d4dcb" />
+    <Project Path="Baithuchanh4c/Bai1/Bai1.csproj" Id="a29c559c-ea3d-489d-8f1a-5984400eb2f1" />
+    <Project Path="Baithuchanh4c/Bai2/Bai2.csproj" Id="a6d63b55-f589-45e5-b059-18bf416cf532" />
+    <Project Path="Baithuchanh4c/Bai3/Bai3.csproj" Id="18890d2a-72be-4799-95ff-69e446286947" />
+    <Project Path="Baithuchanh4c/Bai4/Bai4.csproj" Id="8d098c39-015b-4f24-bc02-ab8856200589" />
+    <Project Path="Baithuchanh4c/Bai5/Bai5.csproj" Id="2c4b2205-8bde-47b2-aec2-dbec2b66495a" />
+    <Project Path="Baithuchanh4c/MayTinhBoTui/MayTinhBoTui.csproj" Id="62975794-9eb3-4b98-ac4a-afaa6492b4e4" />
+  </Folder>
+  <Folder Name="/Baithuchanh4d/">
+    <Project Path="Bai01/Bai01.csproj" Id="e2f7be8b-eb79-4df2-931b-ffc8e43c14f5" />
+    <Project Path="Bai02/Bai02.csproj" Id="5800915a-5d02-4f87-ae81-e4d5b2571eca" />
+  </Folder>
 </Solution>
