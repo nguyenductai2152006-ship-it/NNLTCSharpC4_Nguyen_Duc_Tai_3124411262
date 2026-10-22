@@ -7,4 +7,7 @@
     <Project Path="Bai3_BTVN/Bai3_BTVN.csproj" />
     <Project Path="Thuchanh05c/Bai1.csproj" />
   </Folder>
+  <Folder Name="/Thuchanh05d/">
+    <Project Path="Bai1/Bai1.csproj" Id="ecf2bd52-0c10-455c-89ed-a6caed2eeeaa" />
+  </Folder>
 </Solution>
