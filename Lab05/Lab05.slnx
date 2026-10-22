@@ -1,13 +1,10 @@
 <Solution>
   <Folder Name="/Thuchanh05c/">
-    <Project Path="Bai03/Bai1_Nangcao.csproj" />
-    <Project Path="Bai1_BTVN/Bai1_BTVN.csproj" />
-    <Project Path="Bai2/Bai2.csproj" />
-    <Project Path="Bai2_BTVN/Bai2_BTVN.csproj" />
-    <Project Path="Bai3_BTVN/Bai3_BTVN.csproj" />
-    <Project Path="Thuchanh05c/Bai1.csproj" />
+    <Project Path="Thuchanh05c/Bai1/Bai1.csproj" />
   </Folder>
   <Folder Name="/Thuchanh05d/">
     <Project Path="Bai1/Bai1.csproj" Id="ecf2bd52-0c10-455c-89ed-a6caed2eeeaa" />
+    <Project Path="Bai2/Bai2.csproj" Id="c6a64ecb-e17d-4a6a-a4f3-7d234d97d3ef" />
+    <Project Path="Bai3/Bai1_Nangcao.csproj" Id="fcd55d3f-a4bc-4aa3-a506-d0a31414111b" />
   </Folder>
 </Solution>
