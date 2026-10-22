@@ -8,4 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bai1_BTVN\Bai1_BTVN.csproj" />
+  </ItemGroup>
+
 </Project>
