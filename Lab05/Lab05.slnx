@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Thuchanh05c/">
+    <Project Path="Bai03/Bai03.csproj" />
+    <Project Path="Bai2/Bai2.csproj" />
+    <Project Path="Thuchanh05c/Bai1.csproj" />
+  </Folder>
+</Solution>
