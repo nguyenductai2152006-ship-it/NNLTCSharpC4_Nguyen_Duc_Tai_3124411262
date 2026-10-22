@@ -6,5 +6,6 @@
     <Project Path="Bai1/Bai1.csproj" Id="ecf2bd52-0c10-455c-89ed-a6caed2eeeaa" />
     <Project Path="Bai2/Bai2.csproj" Id="c6a64ecb-e17d-4a6a-a4f3-7d234d97d3ef" />
     <Project Path="Bai3/Bai1_Nangcao.csproj" Id="fcd55d3f-a4bc-4aa3-a506-d0a31414111b" />
+    <Project Path="Bai_BTVN/Bai1_BTVN.csproj" Id="216ee8b0-e3ae-402e-bb82-60fec457a7dd" />
   </Folder>
 </Solution>
