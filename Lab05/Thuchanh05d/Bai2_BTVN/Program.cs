@@ -15,7 +15,7 @@ namespace BT_WinForm_05d
             // Hoặc đổi tên Form dưới đây để chạy trực tiếp từng bài:
             // Phần 1 (WinForm Nâng cao 2): frmBaitap1, frmBaiTap2, frmQuanLyHocVien, frmDongHo, frmMainTuan6
             // Phần 2 (CSDL ADO.NET): frmQLMonHoc, frmQLSinhVien, frmQLDiem, frmLop
-            Application.Run(new frmQuanLyHocVien());
+            Application.Run(new frmMainTuan6());
         }
     }
 }
