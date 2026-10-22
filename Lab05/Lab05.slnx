@@ -3,6 +3,8 @@
     <Project Path="Bai03/Bai1_Nangcao.csproj" />
     <Project Path="Bai1_BTVN/Bai1_BTVN.csproj" />
     <Project Path="Bai2/Bai2.csproj" />
+    <Project Path="Bai2_BTVN/Bai2_BTVN.csproj" />
+    <Project Path="Bai3_BTVN/Bai3_BTVN.csproj" />
     <Project Path="Thuchanh05c/Bai1.csproj" />
   </Folder>
 </Solution>

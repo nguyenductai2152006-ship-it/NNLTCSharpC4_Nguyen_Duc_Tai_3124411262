@@ -13,7 +13,7 @@ namespace BT_WinForm_NangCao
 
             // Đổi tên Form dưới đây để chạy bài tương ứng:
             // frmBaiTapTaiLop1, frmBaiTapTaiLop2, frmChuoi, frmTuDien, frmListbox, frmBTVN3
-            Application.Run(new frmChuoi());
+            Application.Run(new Form1());
         }
     }
 }
