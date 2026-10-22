@@ -7,7 +7,7 @@ namespace BT_WinForm_05d
 {
     public partial class frmQLMonHoc : Form
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=.;Initial Catalog=QLSinhVien;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=TAIZ-2105\SQLEXPRESS;Initial Catalog=QLSinhVien;Integrated Security=True");
 
         public frmQLMonHoc()
         {

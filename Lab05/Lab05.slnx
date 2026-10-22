@@ -3,11 +3,8 @@
     <Project Path="Thuchanh05c/Bai1/Bai1.csproj" />
   </Folder>
   <Folder Name="/Thuchanh05d/">
-    <Project Path="Bai1/Bai1.csproj" Id="ecf2bd52-0c10-455c-89ed-a6caed2eeeaa" />
-    <Project Path="Bai2/Bai2.csproj" Id="c6a64ecb-e17d-4a6a-a4f3-7d234d97d3ef" />
-    <Project Path="Bai2_BTVN/Bai2_BTVN.csproj" Id="5416e125-52cc-4505-a5a9-b686fb2f13c6" />
-    <Project Path="Bai3/Bai1_Nangcao.csproj" Id="fcd55d3f-a4bc-4aa3-a506-d0a31414111b" />
-    <Project Path="BaiQuanlymonhoc/Bai1_Phan7.csproj" Id="49993fc7-972d-4cdc-9f81-28482c564d2f" />
-    <Project Path="Bai_BTVN/Bai1_BTVN.csproj" Id="216ee8b0-e3ae-402e-bb82-60fec457a7dd" />
+    <File Path="Thuchanh05d/Bai1/Program.cs" />
+    <File Path="Thuchanh05d/BaiQuanlymonhoc/Bai1_Phan7.csproj" />
+    <Project Path="Bai1_Nangcao_Phan7/Bai1_Nangcao_Phan7.csproj" Id="fcbe1757-3971-41e4-9e57-185d2ed3d8d0" />
   </Folder>
 </Solution>
